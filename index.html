@@ -3,55 +3,114 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventor Watch</title>
+    <title>Inventor Watch | The Library of Ideas</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f0f0f; color: #f1f1f1; margin: 0; padding: 10px; }
-        header { text-align: center; padding: 40px 10px; background: linear-gradient(to bottom, #222, #0f0f0f); border-bottom: 2px solid #ffcc00; }
-        h1 { color: #ffcc00; margin: 0; font-size: 2.5em; }
-        .container { max-width: 900px; margin: 20px auto; }
-        .video-card { background: #1a1a1a; border-radius: 12px; margin-bottom: 30px; overflow: hidden; border: 1px solid #333; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+        :root { --gold: #ffcc00; --dark: #0a0a0a; --card: #1a1a1a; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--dark); color: white; margin: 0; padding-bottom: 50px; }
+        
+        /* Header & Search Area */
+        header { text-align: center; padding: 60px 20px; background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80'); background-size: cover; border-bottom: 3px solid var(--gold); }
+        h1 { font-size: 3em; margin: 0; color: var(--gold); text-transform: uppercase; letter-spacing: 2px; }
+        .search-container { margin-top: 20px; }
+        #searchBar { width: 80%; max-width: 500px; padding: 15px; border-radius: 30px; border: none; font-size: 1.1em; outline: none; box-shadow: 0 0 15px var(--gold); }
+
+        /* Grid Layout */
+        .container { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; padding: 20px; max-width: 1200px; margin: auto; }
+        
+        /* The Video Cards */
+        .video-card { background: var(--card); border-radius: 15px; overflow: hidden; border: 1px solid #333; transition: 0.3s; }
+        .video-card:hover { transform: scale(1.03); border-color: var(--gold); }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-        .info { padding: 20px; }
-        .info h3 { color: #ffcc00; margin: 0 0 10px 0; }
-        .info p { color: #ccc; line-height: 1.6; }
-        .footer { text-align: center; padding: 20px; font-size: 0.8em; color: #666; }
+        .info { padding: 15px; }
+        .info h3 { margin: 0 0 10px 0; color: var(--gold); }
+        .info p { font-size: 0.9em; color: #bbb; line-height: 1.4; }
+
+        /* Hide cards that don't match search */
+        .hidden { display: none; }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Inventor Watch</h1>
-        <p>Watching the minds that changed the world.</p>
-    </header>
-
-    <div class="container">
-
-        <div class="video-card">
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/K3fIZxJCaEk" allowfullscreen></iframe>
-            </div>
-            <div class="info">
-                <h3>Charles B. Brooks: The Street Sweeper</h3>
-                <p>Brooks patented the first self-propelled street-sweeping truck in 1896. He also invented the modern ticket punch that collects paper scraps!</p>
-            </div>
-        </div>
-
-        <div class="video-card">
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/IRfxmcHH_YA" allowfullscreen></iframe>
-            </div>
-            <div class="info">
-                <h3>Garrett Morgan: Safety First</h3>
-                <p>Born right here in Ohio, Morgan invented the three-position traffic signal and the safety hood (an early gas mask) used to save miners.</p>
-            </div>
-        </div>
-
-        </div>
-
-    <div class="footer">
-        <p>© 2026 Inventor Watch - Created by Deandre</p>
+<header>
+    <h1>Inventor Watch</h1>
+    <p>Every Story. Every Invention. One Place.</p>
+    <div class="search-container">
+        <input type="text" id="searchBar" placeholder="Search for an inventor (e.g. Ford, Brooks, Morgan)..." onkeyup="searchInventors()">
     </div>
+</header>
+
+<div class="container" id="inventorGrid">
+
+    <div class="video-card">
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/czNd_ZZlPoc" allowfullscreen></iframe>
+        </div>
+        <div class="info">
+            <h3>Charles B. Brooks</h3>
+            <p>The visionary who changed city sanitation forever with the self-propelled street sweeper (1896).</p>
+        </div>
+    </div>
+
+    <div class="video-card">
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/F4-V4A8XvTs" allowfullscreen></iframe>
+        </div>
+        <div class="info">
+            <h3>Garrett Morgan</h3>
+            <p>The Ohio legend. Inventor of the three-position traffic signal and the safety smoke hood.</p>
+        </div>
+    </div>
+
+    <div class="video-card">
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/ymEaa4r0xXk" allowfullscreen></iframe>
+        </div>
+        <div class="info">
+            <h3>Henry Ford</h3>
+            <p>From "The Men Who Built America." He revolutionized the world with the assembly line and the Model T.</p>
+        </div>
+    </div>
+
+    <div class="video-card">
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/IYm74juSQV4" allowfullscreen></iframe>
+        </div>
+        <div class="info">
+            <h3>Madam C.J. Walker</h3>
+            <p>The first self-made female millionaire in America. A pioneer of the hair care and cosmetics industry.</p>
+        </div>
+    </div>
+
+    <div class="video-card">
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/HQ2RJC1a8T0" allowfullscreen></iframe>
+        </div>
+        <div class="info">
+            <h3>Thomas Edison</h3>
+            <p>The Wizard of Menlo Park. Holder of 1,093 patents, including the light bulb and movie camera.</p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function searchInventors() {
+        let input = document.getElementById('searchBar').value.toLowerCase();
+        let cards = document.getElementsByClassName('video-card');
+        
+        for (let i = 0; i < cards.length; i++) {
+            let title = cards[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+            let description = cards[i].getElementsByTagName('p')[0].innerText.toLowerCase();
+            
+            if (title.includes(input) || description.includes(input)) {
+                cards[i].classList.remove('hidden');
+            } else {
+                cards[i].classList.add('hidden');
+            }
+        }
+    }
+</script>
 
 </body>
 </html>
