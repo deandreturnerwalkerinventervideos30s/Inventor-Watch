@@ -5,34 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventor Watch</title>
     <style>
-        body { font-family: sans-serif; background: #121212; color: white; margin: 0; padding: 20px; }
-        h1 { text-align: center; color: #ffcc00; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { background: #1e1e1e; border-radius: 10px; padding: 15px; border: 1px solid #333; }
-        .card img { width: 100%; border-radius: 5px; }
-        .card h3 { margin: 10px 0; }
-        .card p { font-size: 0.9em; color: #bbb; }
-        .btn { display: block; text-align: center; background: #ffcc00; color: black; padding: 10px; 
-               text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 10px; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f0f0f; color: #f1f1f1; margin: 0; padding: 10px; }
+        header { text-align: center; padding: 40px 10px; background: linear-gradient(to bottom, #222, #0f0f0f); border-bottom: 2px solid #ffcc00; }
+        h1 { color: #ffcc00; margin: 0; font-size: 2.5em; }
+        .container { max-width: 900px; margin: 20px auto; }
+        .video-card { background: #1a1a1a; border-radius: 12px; margin-bottom: 30px; overflow: hidden; border: 1px solid #333; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+        .info { padding: 20px; }
+        .info h3 { color: #ffcc00; margin: 0 0 10px 0; }
+        .info p { color: #ccc; line-height: 1.6; }
+        .footer { text-align: center; padding: 20px; font-size: 0.8em; color: #666; }
     </style>
 </head>
 <body>
 
-    <h1>Inventor Watch</h1>
-    <p style="text-align:center;">Celebrating the minds that build the future.</p>
+    <header>
+        <h1>Inventor Watch</h1>
+        <p>Watching the minds that changed the world.</p>
+    </header>
 
-    <div class="grid">
-        <div class="card">
-            <h3>Charles B. Brooks</h3>
-            <p>Inventor of the street-sweeping truck (1896) and improvements to the paper punch.</p>
-            <a href="https://www.youtube.com/results?search_query=charles+b+brooks+inventor" class="btn">Watch Stories</a>
+    <div class="container">
+
+        <div class="video-card">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/K3fIZxJCaEk" allowfullscreen></iframe>
+            </div>
+            <div class="info">
+                <h3>Charles B. Brooks: The Street Sweeper</h3>
+                <p>Brooks patented the first self-propelled street-sweeping truck in 1896. He also invented the modern ticket punch that collects paper scraps!</p>
+            </div>
         </div>
 
-        <div class="card">
-            <h3>Garrett Morgan</h3>
-            <p>The Akron-born legend who invented the three-position traffic signal and gas mask.</p>
-            <a href="https://www.youtube.com/results?search_query=garrett+morgan+inventions" class="btn">Watch Stories</a>
+        <div class="video-card">
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/IRfxmcHH_YA" allowfullscreen></iframe>
+            </div>
+            <div class="info">
+                <h3>Garrett Morgan: Safety First</h3>
+                <p>Born right here in Ohio, Morgan invented the three-position traffic signal and the safety hood (an early gas mask) used to save miners.</p>
+            </div>
         </div>
+
+        </div>
+
+    <div class="footer">
+        <p>© 2026 Inventor Watch - Created by Deandre</p>
     </div>
 
 </body>
